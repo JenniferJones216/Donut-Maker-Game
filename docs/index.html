@@ -8,7 +8,46 @@
 </head>
 <body>
     <h1>The Donut Shoppe</h1>
-    <script src="DontShoppe.js"></script>
-    <script src="app.js"></script>
+    <img src="https://www.tasteofhome.com/wp-content/uploads/2019/05/donuts-shutterstock_332325548.jpg" width="600">
+    <br />
+    <br />
+    
+    <div id="dashboard">
+        <label>Donut Count: </label>
+        <input type="text" name="DonutCount" id="DonutCountBox" readOnly>
+        <button id="DonutMaker">Make a Donut</button>
+        <button id="HundredDonutMaker">Make 100 Donuts</button>
+        <br />
+    <br />
+
+    <!-- autoclicker dashboard -->
+    <label>No. of Auto Clickers: </label>
+        <input type="text" name="AutoClickerCount" id="AutoClickerCountBox" readOnly>
+    <button id="BuyAutoClickerButton">Buy Auto Clicker</button>
+    <br />
+    <label>Auto Clicker Price: </label>
+        <input type="text" name="AutoClickerPrice" id="AutoClickerPriceBox" readOnly>
+        <label> ----- Auto Clicks per Second: </label>
+        <input type="text" name="AutoClicksPerSecond" id="ClicksPerSecondBox" readOnly>
+        <br />
+    <br />
+
+    <!-- multiplier dashboard -->
+    <label>No. of Multipliers: </label>
+        <input type="text" name="MultiplierCount" id="MultiplierCountBox" readOnly>
+    <button id="BuyMultiplierButton">Buy Multiplier</button>
+    <br />
+    <label>Multiplier Price: </label>
+        <input type="text" name="MultiplierPrice" id="MultiplierPriceBox" readOnly>
+        <label> ----- Multiplier Rate / Donuts Per Click: </label>
+        <input type="text" name="DonutsPerClick" id="DonutsPerClickBox" readOnly>
+    </div>
+
+
+    <script src="/src/js/DonutShoppe.js"></script>
+    <script src="/src/js/app.js"></script>
+        
+        
+
 </body>
 </html>
