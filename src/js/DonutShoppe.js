@@ -7,6 +7,8 @@ class DonutShoppe {
         this.MultiplierCount = 0;
         this.DonutsPerClick = 1;
         this.MultiplierPrice = 100;
+        this.MultiplierButtonDisabled = true;
+        this.AutoClickerButtonDisabled = true;
     }
 
     makeDonut(){
@@ -28,8 +30,11 @@ class DonutShoppe {
         this.AutoClickerPrice *= 1.1; 
     }
 
-       buyMultiplier(){
+    buyMultiplier(){
         this.MultiplierCount += 1;
+        this.DonutCount -= this.MultiplierPrice;
+        this.DonutsPerClick = Math.pow(1.2, this.MultiplierCount);
+        this.MultiplierPrice *= 1.1; 
     }
 
     getAutoClickerCount(){
@@ -54,5 +59,32 @@ class DonutShoppe {
 
     getDonutsPerClick(){
         return this.DonutsPerClick;
+    }
+
+    updatePurchaseButtons(){
+        if (this.AutoClickerPrice<=this.DonutCount)
+        {
+            this.AutoClickerButtonDisabled = false;
+        }
+        else
+        {
+            this.AutoClickerButtonDisabled = true;
+        }
+        if (this.MultiplierPrice<=this.DonutCount)
+        {
+            this.MultiplierButtonDisabled = false;
+        }
+        else
+        {
+            this.MultiplierButtonDisabled = true;
+        }
+    }
+
+    getAutoClickerButtonStatus(){
+        return this.AutoClickerButtonDisabled;
+    }
+
+    getMultiplierButtonStatus(){
+        return this.MultiplierButtonDisabled;
     }
 }
