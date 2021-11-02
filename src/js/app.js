@@ -3,84 +3,76 @@ const DonutMakerInput = document.getElementById("DonutMaker");
 const HundredDonutInput = document.getElementById("HundredDonutMaker");
 const AutoClickerCountDisplay = document.getElementById("AutoClickerCountBox");
 const BuyAutoClickerInput = document.getElementById("BuyAutoClickerButton");
+const SellAutoClickerInput = document.getElementById("SellAutoClickerButton");
 const AutoClickerPriceDisplay = document.getElementById("AutoClickerPriceBox");
 const ClicksPerSecondDisplay = document.getElementById("ClicksPerSecondBox");
 const MultiplierCountDisplay = document.getElementById("MultiplierCountBox");
 const BuyMultiplierInput = document.getElementById("BuyMultiplierButton");
 const MultiplierPriceDisplay = document.getElementById("MultiplierPriceBox");
 const DonutsPerClickDisplay = document.getElementById("DonutsPerClickBox");
+const ResetInput = document.getElementById("ResetButton");
 
 
 let donutshoppe = new DonutShoppe();
 
-// console.log(donutshoppe.getDonutCount());
+function updateDisplay(){
+    DonutCountDisplay.value = donutshoppe.getDonutCount();
+    donutshoppe.updatePurchaseButtons();
+    AutoClickerCountDisplay.value = donutshoppe.getAutoClickerCount();
+    BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
+    AutoClickerPriceDisplay.value = donutshoppe.getAutoClickerPrice();
+    ClicksPerSecondDisplay.value = donutshoppe.getAutoClicksPerSecond();
+    MultiplierCountDisplay.value = donutshoppe.getMultiplierCount();
+    BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
+    MultiplierPriceDisplay.value = donutshoppe.getMultiplierPrice();
+    DonutsPerClickDisplay.value = donutshoppe.getDonutsPerClick();
+}
 
-DonutCountDisplay.value = donutshoppe.getDonutCount();
-
-BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
+updateDisplay();
 
 DonutMakerInput.addEventListener("click", function(){
     donutshoppe.makeDonut();
-    DonutCountDisplay.value = donutshoppe.getDonutCount();
-    donutshoppe.updatePurchaseButtons();
-    BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-    BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
+    updateDisplay();
 })
 
 HundredDonutInput.addEventListener("click", function(){
     donutshoppe.makeHundredDonuts();
-    DonutCountDisplay.value = donutshoppe.getDonutCount();
-    donutshoppe.updatePurchaseButtons();
-    BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-    BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();})
+    updateDisplay();
+})
 
-AutoClickerCountDisplay.value = donutshoppe.getAutoClickerCount();
-
-
-BuyAutoClickerInput.addEventListener("click", function(){
-    function StopAutoClicker() {
-        clearInterval(a);
-    }
+BuyAutoClickerInput.addEventListener("click", function() {
     donutshoppe.buyAutoClicker();
-    DonutCountDisplay.value = donutshoppe.getDonutCount();
-    AutoClickerCountDisplay.value = donutshoppe.getAutoClickerCount();
-    AutoClickerPriceDisplay.value = donutshoppe.getAutoClickerPrice();
-    ClicksPerSecondDisplay.value = donutshoppe.getAutoClicksPerSecond();
-    donutshoppe.updatePurchaseButtons();
-    BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-    BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
     let r = donutshoppe.getAutoClicksPerSecond();
     let s = 1000/r;
     var a = setInterval(makeAutoClickDonut, s); 
-        function makeAutoClickDonut() {
+    function makeAutoClickDonut() {
         donutshoppe.makeDonut();
-        DonutCountDisplay.value = donutshoppe.getDonutCount();
-        donutshoppe.updatePurchaseButtons();
-        BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-        BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
-    }
+        updateDisplay();
+        let r = donutshoppe.getAutoClicksPerSecond(); 
+        let s = 1000/r;  
+        if (r === 0){
+            StopAutoClicker();
+            donutshoppe.resetDonutCount();
+            updateDisplay();
+            }
+    } 
+    function StopAutoClicker() {
+        clearInterval(a);
+    }  
 })
 
-
-AutoClickerPriceDisplay.value = donutshoppe.getAutoClickerPrice();
-
-ClicksPerSecondDisplay.value = donutshoppe.getAutoClicksPerSecond();
-
-MultiplierCountDisplay.value = donutshoppe.getMultiplierCount();
+SellAutoClickerInput.addEventListener("click", function() {
+    donutshoppe.sellAutoClicker();
+    let r = donutshoppe.getAutoClicksPerSecond();
+    let s = 1000/r;
+})
 
 BuyMultiplierInput.addEventListener("click", function(){
     donutshoppe.buyMultiplier();
-    DonutCountDisplay.value = donutshoppe.getDonutCount();
-    MultiplierCountDisplay.value = donutshoppe.getMultiplierCount();
-    MultiplierPriceDisplay.value = donutshoppe.getMultiplierPrice();
-    DonutsPerClickDisplay.value = donutshoppe.getDonutsPerClick();
-    donutshoppe.updatePurchaseButtons();
-    BuyAutoClickerInput.disabled = donutshoppe.getAutoClickerButtonStatus();
-    BuyMultiplierInput.disabled = donutshoppe.getMultiplierButtonStatus();
+    updateDisplay();
 })
 
-MultiplierPriceDisplay.value = donutshoppe.getMultiplierPrice();
-
-DonutsPerClickDisplay.value = donutshoppe.getDonutsPerClick();
-
+ResetInput.addEventListener("click", function(){
+    donutshoppe.Reset();
+    updateDisplay();
+})
