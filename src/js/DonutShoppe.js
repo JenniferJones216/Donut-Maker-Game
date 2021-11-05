@@ -13,10 +13,14 @@ class DonutShoppe {
 
     makeDonut(){
         this.DonutCount += this.DonutsPerClick;
+        for (let s = 1; s <= this.DonutsPerClick; s++)
+        {spawnSpinningDonut();}
     }
 
     makeHundredDonuts(){
         this.DonutCount += 100;
+        for (let d = 0; d < 20; d++)
+        {spawnSpinningDonut();}
     }
 
     getDonutCount(){

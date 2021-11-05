@@ -14,8 +14,66 @@ const ResetInput = document.getElementById("ResetButton");
 
 
 let donutshoppe = new DonutShoppe();
+// let particle = new Particle();
 
-function updateDisplay(){
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function companyDropFunction() {
+    document.getElementById("companyDropdown").classList.toggle("show");
+      }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  function inspirationDropFunction() {
+    document.getElementById("inspirationDropdown").classList.toggle("show");
+    // document.getElementById("developerDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  function developerDropFunction() {
+    document.getElementById("developerDropdown").classList.toggle("show");
+  }
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+  }
+
+  function updateDisplay(){
     DonutCountDisplay.value = donutshoppe.getDonutCount();
     donutshoppe.updatePurchaseButtons();
     AutoClickerCountDisplay.value = donutshoppe.getAutoClickerCount();
@@ -32,6 +90,7 @@ updateDisplay();
 
 DonutMakerInput.addEventListener("click", function(){
     donutshoppe.makeDonut();
+    // spawnSpinningDonut();
     updateDisplay();
 })
 
@@ -61,11 +120,11 @@ BuyAutoClickerInput.addEventListener("click", function() {
     }  
 })
 
-SellAutoClickerInput.addEventListener("click", function() {
-    donutshoppe.sellAutoClicker();
-    let r = donutshoppe.getAutoClicksPerSecond();
-    let s = 1000/r;
-})
+// SellAutoClickerInput.addEventListener("click", function() {
+//     donutshoppe.sellAutoClicker();
+//     let r = donutshoppe.getAutoClicksPerSecond();
+//     let s = 1000/r;
+// })
 
 BuyMultiplierInput.addEventListener("click", function(){
     donutshoppe.buyMultiplier();

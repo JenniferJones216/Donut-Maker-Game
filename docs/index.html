@@ -4,53 +4,110 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/css/style.css">
     <title>The Donut Shoppe</title>
 </head>
+
 <body>
-    <h1>The Donut Shoppe</h1>
-    <img src="https://www.tasteofhome.com/wp-content/uploads/2019/05/donuts-shutterstock_332325548.jpg" width="600">
-    <br />
-    <br />
+    <div class="wrapper">
+        <header class="header">
+   <div class="title">The Donut Shoppe</div>
+
+        <ul class="dropdown">
+            <li>
+        <button onclick="companyDropFunction()" class="dropbtn">About Us</button>
+        <div id="companyDropdown" class="dropdown-content">
+            Fred, our Master Donut Maker, has been creating the yummiest donuts in Northeast Ohio for over 20 years. He studied donut making and other fine pastry skills at the Sorbonne in Paris. The Donut Shoppe is located at the intersection of Carriage Avenue and West 41st Street, on Cleveland's west side. Come in for a fresh donut today!
+        </div>
+        </li>
+
+        <li>
+        <button onclick="inspirationDropFunction()" class="dropbtn">Inspiration</button>
+        <div id="inspirationDropdown" class="dropdown-content">
+            This Donut Shoppe game was inspired by the <a href = "https://cookie-clicker.co/" target = "new">Cookie Clicker</a> game. Check out the game and you can virtually spark your cravings for both cookies and donuts.
+        </div>
+        </li>
+
+        <li>
+        <button onclick="developerDropFunction()" class="dropbtn" id="developerButton">Developer</button>
+        <div id="developerDropdown" class="dropdown-content">
+            This javascript game was created by Software Developer Jennifer Jones. Jennifer is based in Cleveland, Ohio, USA. <br />
+            <a href = "https://jenniferjones216.github.io/index.html" target = "new">Jennifer Jones' Profile Page</a><br />
+            <a href = "https://github.com/JenniferJones216" target = "new">Jennifer Jones' GitHub</a>
+            <br />
+            <img src = "https://i.etsystatic.com/28881319/c/1066/847/0/31/il/aa60d1/3453416513/il_340x270.3453416513_jawu.jpg" width = 200>
+        </li>
+        </ul>
+        </div>
+    </header>
+    <canvas id="canvas"></canvas>
+    <ul class="main">
+        <li>
+.       <img src="/images/old-fashioned-stove.png" class="photo">
+        </li>
     
-    <div id="dashboard">
-        <label>Donut Count: </label>
-        <input type="text" name="DonutCount" id="DonutCountBox" readOnly>
-        <button id="DonutMaker">Make a Donut</button>
-        <button id="HundredDonutMaker">Make 100 Donuts</button>
-        <br />
+        <li>
+    <ul class="dashboard">
+    <li>
+        <div id="donutmaker">
+    <label>Donut Count: </label>
+    <input type="text" name="DonutCount" id="DonutCountBox" readOnly></textarea>
     <br />
-
-    <!-- autoclicker dashboard -->
-    <label>No. of Auto Clickers: </label>
-        <input type="text" name="AutoClickerCount" id="AutoClickerCountBox" readOnly>
-    <button id="BuyAutoClickerButton">Buy Auto Clicker</button>
-    <button id="SellAutoClickerButton">Sell Auto Clicker</button>
+    <button id="DonutMaker">Make a Donut</button>
     <br />
-    <label>Auto Clicker Price: </label>
-        <input type="text" name="AutoClickerPrice" id="AutoClickerPriceBox" readOnly>
-        <label> ----- Auto Clicks per Second: </label>
-        <input type="text" name="AutoClicksPerSecond" id="ClicksPerSecondBox" readOnly>
-        <br />
-    <br />
-
-    <!-- multiplier dashboard -->
-    <label>No. of Multipliers: </label>
-        <input type="text" name="MultiplierCount" id="MultiplierCountBox" readOnly>
-    <button id="BuyMultiplierButton">Buy Multiplier</button>
-    <br />
-    <label>Multiplier Price: </label>
-        <input type="text" name="MultiplierPrice" id="MultiplierPriceBox" readOnly>
-        <label> ----- Multiplier Rate / Donuts Per Click: </label>
+    <label>Multiplier Rate / Donuts Per Click: </label>
         <input type="text" name="DonutsPerClick" id="DonutsPerClickBox" readOnly>
-    </div>
-
+        <br />
+    <button id="HundredDonutMaker">Make 100 Donuts</button>
+    <br />
     <!-- reset -->
     <button id="ResetButton">Reset</button>
+    <br />
+        </div>
+
+    </li>
+      
+    <!-- autoclicker dashboard -->
+    <li id="autoclick">
+    <label>No. of Auto Clickers: </label>
+        <input type="text" name="AutoClickerCount" id="AutoClickerCountBox" readOnly>
+        <br />
+    <button id="BuyAutoClickerButton">Buy Auto Clicker</button>
+        <br />
+    <!-- <button id="SellAutoClickerButton">Sell Auto Clicker</button> -->
+       <label>Auto Clicker Price: </label>
+        <input type="text" name="AutoClickerPrice" id="AutoClickerPriceBox" readOnly>
+        <br />
+        <label>Auto Clicks per Second: </label>
+        <input type="text" name="AutoClicksPerSecond" id="ClicksPerSecondBox" readOnly>
+        <br />
+    </li>
+       
+    <!-- multiplier dashboard -->
+    <li id="multiplier">
+    <label>No. of Multipliers: </label>
+        <input type="text" name="MultiplierCount" id="MultiplierCountBox" readOnly>
+        <br />
+        <button id="BuyMultiplierButton">Buy Multiplier</button>
+        <br />
+        <label>Multiplier Price: </label>
+        <input type="text" name="MultiplierPrice" id="MultiplierPriceBox" readOnly>
+        <br />
+        </aside>
+    </li>
+    </ul>
+        </li>
+    </ul>
+      
+
+
 
     <script src="/src/js/DonutShoppe.js"></script>
+    <script src="/src/js/Particle.js"></script>
     <script src="/src/js/app.js"></script>
+    
         
         
-
+</div>
 </body>
 </html>
