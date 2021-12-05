@@ -50,9 +50,6 @@ The amount of Donut Multipliers purchased. Donut Multipliers increase the value 
 
 ... you get the picture
 
-NOTE: The number of Donuts earned per click can be calculated with the following equation: 1.2 to the xth power, where x is the number of Donut Multipliers
-or written in JS syntax as ``` Math.pow(1.2, DonutMultiplierCount) ```
-
 **Donut Multiplier Cost**
 The number of donuts required to purchase a Donut Multiplier. Starting value is 10 donuts. For each Donut Multiplier purchased, the cost of the next Donut Multiplier increases by 10%.
 
@@ -234,23 +231,3 @@ This iteration is for you to complete final project requirements.
 > As a user, I want to be able to reset my game, so that my coworkers won't know how much time I wasted on clicking a button.
 - Have a way to stay on the same page, but reset the state of the game.
 
-## Stretch Features
-This iteration is for you to individualize your project. Use JavaScript to change to how your elements are displayed, add new features, document and make changes to the above rules, or make elements move across the screen.
-
-**STRETCH FEATURE 0: Balance The Game**
-> As a game designer, I want the game to be fun to play. That is, I don't want it to be too eary to earn obscene amounts of donuts. Additionally, I might want a challenge to overcome.
-- Tweak the costs and multipliers (can we generalize these to make them more editable?)
-
-**STRETCH FEATURE 1: Click Storm!**
-> As a game designer, I want to have a random element that creates starts a Click Storm, so that users will be engaged in the page.
-- On random intervals have a button pop up and when clicked it starts an event where random buttons worth 10 - 100 clicks appear on the screen and fade away after a few seconds.
-- This event should end after a minute, maybe provide a timer.
-
-**STRETCH FEATURE 2: Purchasable background colors/images.**
-- Be able to change the appearance of the page, at a cost.
-
-**STRETCH FEATURE 3 : Add sound.**
-- Put on a set of headphones and add some sound to the clicks and click count milestones.
-
-**STRETCH FEATURE 4 : Adapt the requirements.**
-- Document the changes to the requirements you want to do and try to bring a better balance to the game.
