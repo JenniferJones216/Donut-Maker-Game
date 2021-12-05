@@ -93,7 +93,6 @@ DonutMakerInput.addEventListener("click", function(){
     // spawnSpinningDonut();
     updateDisplay();
 })
-
 HundredDonutInput.addEventListener("click", function(){
     donutshoppe.makeHundredDonuts();
     updateDisplay();
